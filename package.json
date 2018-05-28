@@ -1,0 +1,25 @@
+{
+    "name": "unipos_counter",
+    "private": true,
+    "scripts": {
+        "eslint": "eslint --fix src/js",
+        "dev": "webpack --config webpack.config.js",
+        "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=webpack.config.js"
+    },
+    "author": "manhhomienbienthuy",
+    "devDependencies": {
+        "axios": "^0.18.0",
+        "babel-loader": "^7.1.4",
+        "cross-env": "^5.1.6",
+        "css-loader": "^0.28.11",
+        "eslint": "^4.19.1",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "mutation-observer": "^1.0.3",
+        "node-sass": "^4.9.0",
+        "sass-loader": "^7.0.1",
+        "style-loader": "^0.21.0",
+        "webpack": "^4.8.3",
+        "webpack-cli": "^2.1.4",
+        "webpack-config": "^7.5.0"
+    }
+}
