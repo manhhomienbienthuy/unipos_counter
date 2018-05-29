@@ -2,19 +2,34 @@ import Config from './Config';
 import Utils from './Utils';
 
 const UniposRequestLib = {
-    async received(offset = '') {
-        const data = this._getRequestData('received', offset);
-        return await this._makeRequest(data);
+    async received() {
+        return this._doRequest('received');
     },
 
-    async sent(offset = '') {
-        const data = this._getRequestData('sent', offset);
-        return await this._makeRequest(data);
+    async sent() {
+        return this._doRequest('sent');
     },
 
-    async clapped(offset = '') {
-        const data = this._getRequestData('clapped', offset);
-        return await this._makeRequest(data);
+    async clapped() {
+        return this._doRequest('clapped');
+    },
+
+    async _doRequest(type = 'received') {
+        let result = [];
+        let offset = '';
+        let req;
+
+        do {
+            const data = this._getRequestData(type, offset);
+            req = await this._makeRequest(data);
+            if (!req || !req.length) {
+                break;
+            }
+            result = result.concat(req);
+            offset = req[req.length - 1].id;
+        } while (req.length < Config.MAX_REQUEST_RESULT);
+
+        return result;
     },
 
     _makeRequest(data) {

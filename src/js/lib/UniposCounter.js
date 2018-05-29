@@ -8,14 +8,13 @@ export default class UniposCounter {
     }
 
     async count() {
-        await Promise.all([
+        const value = await Promise.all([
             UniposRequestLib.received(),
             UniposRequestLib.sent(),
-            UniposRequestLib.clapped()
-        ]).then(value => {
-            this._calc(value);
-            this._display();
-        });
+            UniposRequestLib.clapped(),
+        ]);
+        this._calc(value);
+        this._display();
     }
 
     _calc(value) {
