@@ -40,21 +40,18 @@ export default class UniposCounter {
 
     _display() {
         let template = `
-            <h1>Counter</h1>
-            <table>
-                <tr>
-                    <td>Received</td>
-                    <td>${this.totalReceivedPoint}</td>
-                </tr>
-                <tr>
-                    <td>Sent</td>
-                    <td>${this.totalSentPoint}</td>
-                </tr>
-                <tr>
-                    <td>Clapped</td>
-                    <td>${this.totalClappedPoint}</td>
-                </tr>
-            </table>`;
+            <div class="stats received">
+                <span class="highlight">${this.totalReceivedPoint}</span>
+                <h6>received</h6>
+            </div>
+            <div class="stats sent">
+                <span class="highlight">${this.totalSentPoint}</span>
+                <h6>sent</h6>
+            </div>
+            <div class="stats clapped">
+                <span class="highlight">${this.totalClappedPoint}</span>
+                <h6>clapped</h6>
+            </div>`;
 
         const counterDiv = document.createElement('div');
         counterDiv.setAttribute('id', 'counter');
