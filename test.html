@@ -1,0 +1,56 @@
+<div id="counter">
+    <div class="stats received">
+        <span class="highlight">1234</span>
+        <h6>received</h6>
+    </div>
+    <div class="stats sent">
+        <span class="highlight">1234</span>
+        <h6>sent</h6>
+    </div>
+    <div class="stats clapped">
+        <span class="highlight">1234</span>
+        <h6>clapped</h6>
+    </div>
+</div>
+
+<style>
+    html {
+        font-family: sans-serif;
+    }
+
+    #counter {
+        position: absolute;
+        top: 200px;
+        right: 10px;
+        width: 300px;
+        text-align: center;
+    }
+
+    .stats {
+        float: left;
+        width: 33.33%;
+
+    }
+
+    .highlight {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    h6 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: normal;
+        color: #4a4a4a;
+    }
+
+    .received .highlight {
+        color: #1e73be;
+    }
+    .sent .highlight {
+        color: #be1eb9;
+    }
+    .clapped .highlight {
+        color: #00f3ff;
+    }
+</style>
