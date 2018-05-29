@@ -59,7 +59,6 @@ export default class UniposCounter {
         const counterDiv = document.createElement('div');
         counterDiv.setAttribute('id', 'counter');
         counterDiv.innerHTML = template;
-        const jsBody = document.getElementById('js_body');
-        jsBody && jsBody.appendChild(counterDiv);
+        document.body.appendChild(counterDiv);
     }
 }
