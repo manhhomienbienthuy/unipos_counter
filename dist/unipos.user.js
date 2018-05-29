@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Unipos counter
-// @version      0.0.1
+// @version      1.0
 // @description  Counter for unipos point
 // @author       manhhomienbienthuy
 // @match        https://unipos.me/*
@@ -89,7 +89,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"#counter {\\n  position: absolute;\\n  top: 200px;\\n  right: 10px;\\n  width: 300px;\\n  text-align: center; }\\n  #counter .stats {\\n    float: left;\\n    width: 33.33%; }\\n  #counter .highlight {\\n    font-size: 30px;\\n    font-weight: 700; }\\n    .received #counter .highlight {\\n      color: #1e73be; }\\n    .sent #counter .highlight {\\n      color: #be1eb9; }\\n    .clapped #counter .highlight {\\n      color: #00f3ff; }\\n  #counter h6 {\\n    margin: 0;\\n    font-size: 14px;\\n    font-weight: 400;\\n    color: #4a4a4a; }\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./src/scss/app.scss?./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js");
+eval("exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"#counter {\\n  position: absolute;\\n  top: 200px;\\n  right: 10px;\\n  width: 300px;\\n  text-align: center; }\\n  #counter .stats {\\n    float: left;\\n    width: 33.33%; }\\n  #counter .highlight {\\n    font-size: 30px;\\n    font-weight: 700; }\\n  #counter .received {\\n    color: #1e73be; }\\n  #counter .sent {\\n    color: #be1eb9; }\\n  #counter .clapped {\\n    color: #00f3ff; }\\n  #counter h6 {\\n    margin: 0;\\n    font-size: 14px;\\n    font-weight: 400;\\n    color: #4a4a4a; }\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./src/scss/app.scss?./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js");
 
 /***/ }),
 

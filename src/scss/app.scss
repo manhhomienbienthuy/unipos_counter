@@ -13,16 +13,18 @@
     .highlight {
         font-size: 30px;
         font-weight: 700;
+    }
 
-        .received & {
-            color: #1e73be;
-        }
-        .sent & {
-            color: #be1eb9;
-        }
-        .clapped & {
-            color: #00f3ff;
-        }
+    .received {
+        color: #1e73be;
+    }
+
+    .sent {
+        color: #be1eb9;
+    }
+
+    .clapped {
+        color: #00f3ff;
     }
 
     h6 {
