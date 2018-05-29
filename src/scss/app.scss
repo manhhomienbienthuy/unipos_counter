@@ -1,27 +1,34 @@
 #counter {
     position: absolute;
-    right: 20px;
-    top: 80px;
-    font-size: 16px;
+    top: 200px;
+    right: 10px;
+    width: 300px;
+    text-align: center;
 
-    h1 {
-        margin-bottom: 10px;
-        text-align: center;
-        font-size: 18px;
-        font-weight: 600;
+    .stats {
+        float: left;
+        width: 33.33%;
     }
 
-    table {
-        border: 1px solid #999;
+    .highlight {
+        font-size: 30px;
+        font-weight: 700;
+
+        .received & {
+            color: #1e73be;
+        }
+        .sent & {
+            color: #be1eb9;
+        }
+        .clapped & {
+            color: #00f3ff;
+        }
     }
 
-    td,
-    th {
-        padding: 20px;
-        border: 1px solid #999;
-    }
-
-    th {
-        text-align: right;
+    h6 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 400;
+        color: #4a4a4a;
     }
 }
