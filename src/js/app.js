@@ -31,4 +31,4 @@ const config = {
     childList: true,
     subtree: true,
 };
-observer.observe(document.getElementById('js_body'), config);
+observer.observe(document.body, config);
