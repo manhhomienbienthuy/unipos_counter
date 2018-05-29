@@ -8,24 +8,22 @@ let isLoading = false;
 async function callback() {
     const newUserId = Utils.getUserId();
     if (!newUserId) {
-        const counterDiv = document.getElementById('counter');
-        Utils.removeElement(counterDiv);
+        Utils.removeElement(document.getElementById('counter'));
         return;
     }
 
-    if (!isLoading) {
-        if (!currentUserId || currentUserId !== newUserId) {
-            isLoading = true;
-
-            const counterDiv = document.getElementById('counter');
-            Utils.removeElement(counterDiv);
-            const counter = new UniposCounter();
-            await counter.count();
-            currentUserId = newUserId;
-
-            isLoading = false;
-        }
+    if (isLoading || currentUserId === newUserId) {
+        return;
     }
+
+    isLoading = true;
+
+    Utils.removeElement(document.getElementById('counter'));
+    const counter = new UniposCounter();
+    await counter.count();
+    currentUserId = newUserId;
+
+    isLoading = false;
 }
 
 const observer = new MutationObserver(callback);
