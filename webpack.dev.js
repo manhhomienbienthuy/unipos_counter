@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry: [
@@ -31,16 +32,15 @@ module.exports = {
             banner: `
                 // ==UserScript==
                 // @name         Unipos counter
-                // @version      1.0
+                // @version      1.0.1
                 // @description  Counter for unipos point
                 // @author       manhhomienbienthuy
                 // @match        https://unipos.me/*
                 // @run-at       document-idle
                 // @grant        none
-                //
-                // ==/UserScript==\n
+                // ==/UserScript==
                 `.replace(/^\s+/gm, ''),
             raw: true
-        })
+        }),
     ]
 };
