@@ -2,15 +2,15 @@ import Config from './Config';
 import Utils from './Utils';
 
 const UniposRequestLib = {
-    async received() {
+    received() {
         return this._doRequest('received');
     },
 
-    async sent() {
+    sent() {
         return this._doRequest('sent');
     },
 
-    async clapped() {
+    clapped() {
         return this._doRequest('clapped');
     },
 
@@ -32,33 +32,19 @@ const UniposRequestLib = {
         return result;
     },
 
-    _makeRequest(data) {
-        return new Promise((resolve, reject) => {
-            const token = Utils.getToken();
-            const xhr = new XMLHttpRequest();
-            xhr.open('POST', Config.API_URL);
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.setRequestHeader('x-unipos-token', token);
-            xhr.setRequestHeader('Cache-Control', 'no-cache');
-            xhr.onload = () => {
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    resolve(JSON.parse(xhr.response).result);
-                } else {
-                    reject({
-                        status: xhr.status,
-                        statusText: xhr.statusText,
-                    });
-                }
-            };
-            xhr.onerror = () => {
-                reject({
-                    status: xhr.status,
-                    statusText: xhr.statusText,
-                });
-            };
-
-            xhr.send(JSON.stringify(data));
-        });
+    async _makeRequest(data) {
+        const postData = {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-unipos-token': Utils.getToken(),
+            },
+            cache: 'no-cache',
+            body: JSON.stringify(data),
+        };
+        const handler = await fetch(Config.API_URL, postData);
+        const response = await handler.json();
+        return response.result;
     },
 
     _getRequestData(type = 'received', offset = '') {

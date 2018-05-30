@@ -1,4 +1,3 @@
-import MutationObserver from 'mutation-observer';
 import Utils from './lib/Utils';
 import UniposCounter from './lib/UniposCounter';
 
