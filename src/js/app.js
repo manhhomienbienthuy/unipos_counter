@@ -1,13 +1,13 @@
-import Utils from './lib/Utils';
-import UniposCounter from './lib/UniposCounter';
+import {getUserId, removeElement} from './lib/utils';
+import {counter} from './lib/unipos_counter';
 
 let currentUserId = undefined;
 let isLoading = false;
 
 async function callback() {
-    const newUserId = Utils.getUserId();
+    const newUserId = getUserId();
     if (!newUserId) {
-        Utils.removeElement(document.getElementById('counter'));
+        removeElement(document.getElementById('counter'));
         return;
     }
 
@@ -17,9 +17,8 @@ async function callback() {
 
     isLoading = true;
 
-    Utils.removeElement(document.getElementById('counter'));
-    const counter = new UniposCounter();
-    await counter.count();
+    removeElement(document.getElementById('counter'));
+    await counter();
     currentUserId = newUserId;
 
     isLoading = false;
