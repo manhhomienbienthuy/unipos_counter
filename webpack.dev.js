@@ -5,7 +5,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     entry: [
         './src/js/app.js',
-        './src/scss/app.scss'
     ],
     output: {
         filename: './unipos.user.js'
@@ -16,14 +15,6 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader'
             },
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
-            }
         ]
     },
     mode: 'development',
@@ -32,7 +23,7 @@ module.exports = {
             banner: `
                 // ==UserScript==
                 // @name         Unipos counter
-                // @version      1.0.1
+                // @version      1.0.2
                 // @description  Counter for unipos point
                 // @author       manhhomienbienthuy
                 // @match        https://unipos.me/*
