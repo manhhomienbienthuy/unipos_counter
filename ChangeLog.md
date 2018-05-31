@@ -10,3 +10,8 @@
 - Use ECMAScript 2017 syntax `async/await`
 - Use built-int `MutationObserver` and fetch API
 - Drop support for old browser
+
+## 1.0.2 - 2018-05-31
+
+- Stop using style-loader, using internal css instead
+- New capsulation: export used function only
