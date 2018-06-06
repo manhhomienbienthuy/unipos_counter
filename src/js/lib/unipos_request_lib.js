@@ -22,10 +22,10 @@ function _getRequestData(type = 'received', offset = '') {
     }
 
     return {
-        'jsonrpc': '2.0',
-        'method': 'Unipos.GetCards2',
-        'id': 'Unipos.GetCards2',
-        'params': params,
+        jsonrpc: '2.0',
+        method: 'Unipos.GetCards2',
+        id: 'Unipos.GetCards2',
+        params: params,
     };
 }
 
@@ -62,14 +62,31 @@ async function _doRequest(type = 'received') {
     return result;
 }
 
-export function received() {
+export async function received() {
     return _doRequest('received');
 }
 
-export function sent() {
+export async function sent() {
     return _doRequest('sent');
 }
 
-export function clapped() {
+export async function clapped() {
     return _doRequest('clapped');
+}
+
+export async function getClappedPoint(clappedCards) {
+    const memberId = getUserId();
+    const result = await Promise.all(clappedCards.map(async val => {
+        const params = {id: val.id};
+        const data = {
+            jsonrpc: '2.0',
+            method: 'Unipos.GetCard2',
+            id: 'Unipos.GetCard2',
+            params: params,
+        };
+        const handler = await _makeRequest(data);
+        return handler.praises.find(el => el.member.id === memberId).count;
+    }));
+
+    return result.reduce((val, el) => val + el, 0);
 }

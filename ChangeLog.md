@@ -15,3 +15,7 @@
 
 - Stop using style-loader, using internal css instead
 - New capsulation: export used function only
+
+## 1.1 - 2018-06-06
+
+- Fix calculating clapped point (count number of clapped (not counting points))
