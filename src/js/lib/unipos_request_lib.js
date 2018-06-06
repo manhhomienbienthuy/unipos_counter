@@ -44,7 +44,7 @@ async function _makeRequest(data) {
     return response.result;
 }
 
-async function _doRequest(type = 'received') {
+export async function getPosts(type = 'received') {
     let result = [];
     let offset = '';
     let req;
@@ -60,18 +60,6 @@ async function _doRequest(type = 'received') {
     } while (req.length < MAX_REQUEST_RESULT);
 
     return result;
-}
-
-export async function received() {
-    return _doRequest('received');
-}
-
-export async function sent() {
-    return _doRequest('sent');
-}
-
-export async function clapped() {
-    return _doRequest('clapped');
 }
 
 export async function getClappedPoint(clappedCards) {

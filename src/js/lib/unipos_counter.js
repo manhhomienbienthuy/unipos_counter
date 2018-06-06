@@ -1,4 +1,4 @@
-import {received, sent, clapped, getClappedPoint} from './unipos_request_lib';
+import {getPosts, getClappedPoint} from './unipos_request_lib';
 
 async function _calc(value) {
     const result = {received: 0, sent: 0, clapped: 0};
@@ -80,9 +80,9 @@ function _display(result) {
 
 export async function counter() {
     const value = await Promise.all([
-        received(),
-        sent(),
-        clapped(),
+        getPosts('received'),
+        getPosts('sent'),
+        getPosts('clapped'),
     ]);
     const result = await _calc(value);
     _display(result);
