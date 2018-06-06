@@ -1,6 +1,6 @@
-import {received, sent, clapped} from './unipos_request_lib';
+import {received, sent, clapped, getClappedPoint} from './unipos_request_lib';
 
-function _calc(value) {
+async function _calc(value) {
     const result = {received: 0, sent: 0, clapped: 0};
     const [receivedCards, sentCards, clappedCards] = value;
 
@@ -14,10 +14,7 @@ function _calc(value) {
         result.sent += val.point;
     });
 
-    clappedCards.forEach(val => {
-        result.clapped += val.praise_count * 2;
-        result.sent += val.praise_count * 2;
-    });
+    result.clapped = await getClappedPoint(clappedCards);
 
     return result;
 }
@@ -87,6 +84,6 @@ export async function counter() {
         sent(),
         clapped(),
     ]);
-    const result = _calc(value);
+    const result = await _calc(value);
     _display(result);
 }
