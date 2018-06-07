@@ -23,7 +23,7 @@ module.exports = {
             banner: `
                 // ==UserScript==
                 // @name         Unipos counter
-                // @version      1.1
+                // @version      1.1.1
                 // @description  Counter for unipos point
                 // @author       manhhomienbienthuy
                 // @match        https://unipos.me/*
