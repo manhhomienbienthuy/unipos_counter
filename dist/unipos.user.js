@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Unipos counter
-// @version      1.1
+// @version      1.1.1
 // @description  Counter for unipos point
 // @author       manhhomienbienthuy
 // @match        https://unipos.me/*
@@ -139,11 +139,12 @@
             t.setAttribute("id", "counter"), t.innerHTML = n, document.body.appendChild(t);
         }(await l(e));
     }
-    let f = void 0, h = !1;
+    let f = null, h = !1;
     new MutationObserver(async function() {
         const e = c();
-        e ? h || f === e || (h = !0, a(document.getElementById("counter")), await p(), f = e, 
-        h = !1) : a(document.getElementById("counter"));
+        if (!e) return a(document.getElementById("counter")), void (f = null);
+        h || f === e || (h = !0, a(document.getElementById("counter")), await p(), f = e, 
+        h = !1);
     }).observe(document.body, {
         childList: !0,
         subtree: !0
