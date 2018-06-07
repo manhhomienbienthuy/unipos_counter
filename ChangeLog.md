@@ -19,3 +19,7 @@
 ## 1.1 - 2018-06-06
 
 - Fix calculating clapped point (count number of clapped (not counting points))
+
+## 1.1.1 - 2018-06-97
+
+- Fix counting when move from settings and other pages to profile
