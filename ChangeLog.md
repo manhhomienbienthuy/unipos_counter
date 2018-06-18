@@ -20,6 +20,10 @@
 
 - Fix calculating clapped point (count number of clapped (not counting points))
 
-## 1.1.1 - 2018-06-97
+## 1.1.1 - 2018-06-07
 
 - Fix counting when move from settings and other pages to profile
+
+## 1.2 - 2018-06-18
+
+- Use [babel-preset-env](https://new.babeljs.io/docs/en/next/babel-preset-env.html) to build
